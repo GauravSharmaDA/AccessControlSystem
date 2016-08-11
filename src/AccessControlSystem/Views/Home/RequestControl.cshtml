@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Request Access Control</h2>
+    </div>
+    <div class="col-sm-12">
+        <form>
+            <div class="form-group">
+                <label for="inputDepartment">Department Name:</label>
+                <select id="inputDepartment" class="form-control">
+                    <option>IT Support</option>
+                    <option>Development</option>
+                    <option>Business Intelligence</option>
+                    <option>Architecture</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputServer">Server Name:</label>
+                <select id="inputServer" class="form-control">
+                    <option>DAQAPP08</option>
+                    <option>DAPAPP08</option>
+                    <option>DAPSQL12</option>
+                    <option>DAPSQL04</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputReason">Reason:</label>
+                <textarea name="inputReason" class="form-control" cols="20" maxlength="50" rows="2"></textarea>
+            </div>
+            <div class="form-group col-sm-12">
+                <input type="submit" class="form-control" name="submit" value="Request Access" />
+            </div>
+        </form>
+    </div>
+</div>
