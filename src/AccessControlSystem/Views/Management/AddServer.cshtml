@@ -1,1 +1,36 @@
-﻿
+﻿@model AccessControlSystem.Models.ServerModel
+@{
+    ViewData["Title"] = "Add new access policy";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Add Security Policy</h2>
+    </div>
+    <div class="col-sm-12">
+        @using (@Html.BeginForm("AddServer", "Management", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="inputPolicyName">Server Name:</label>
+                @Html.TextBoxFor(model => model.ServerName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputPolicyName">Server type:</label>
+                @Html.DropDownListFor(model => model.SelectedServerType,
+               new SelectList(Model.ServerTypes, "Id", "Name"), null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputPolicyName">Access Policy:</label>
+                @Html.DropDownListFor(model => model.SelectedAccessPolicy,
+               new SelectList(Model.AccessPolicies, "Id", "Name"), null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="inputPolicyName">Department:</label>
+                @Html.DropDownListFor(model => model.SelectedDepartment,
+               new SelectList(Model.Departments, "Id", "Name"), null, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-sm-12">
+                <input type="submit" class="form-control" name="submit" value="Add Server" />
+            </div>
+        }
+    </div>
+</div>

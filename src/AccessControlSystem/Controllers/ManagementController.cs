@@ -1,5 +1,7 @@
 ﻿using AccessControlSystem.Core;
+using AccessControlSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace AccessControlSystem.Controllers
 {
@@ -13,7 +15,17 @@ namespace AccessControlSystem.Controllers
         }
         public IActionResult AddServer()
         {
-            return View();
+            var model = new ServerModel();
+            model.AccessPolicies = _dbContext.Policies.ToList();
+            model.Departments = _dbContext.Departmetns.ToList();
+            model.ServerTypes = _dbContext.ServerTypes.ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult AddServer(ServerModel serverModel)
+        {
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult AddAccessPolicy()
